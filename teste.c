@@ -35,8 +35,12 @@ HashTable* inicializarTabela(int tamanhoInicial, int fatorCarga) {
     return tabelaHash;
 }
 
-int funcaoHash(int codCliente, int tamanho, int duplicacoes) {
-    return codCliente % (tamanho * (1 << duplicacoes));
+int hash_function(int cod, int table_size, int L) {
+    /* printf("CODIGO: %d\n", cod);
+    printf("L: %d\n", L);
+    printf("TABLE SIZE: %d\n", table_size);
+    printf("%d\n", (int)(pow(2, L))); */
+    return cod % (int)((table_size * pow(2, L)));
 }
 
 void inserirCliente(HashTable* tabelaHash, int codCliente, const char* nome) {
