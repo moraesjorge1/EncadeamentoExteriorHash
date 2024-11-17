@@ -13,34 +13,27 @@ typedef struct {
 } Client;
 
 void inserir_clientes(char* dir_tabClientes) {
-    // Abrir arquivo binário para escrita
     FILE* tabClientes = fopen(dir_tabClientes, "wb");
     if (tabClientes == NULL) {
         perror("Erro ao abrir arquivo de clientes");
         exit(1);
     }
 
-    // Array com 20 clientes para inserir
     Client clientes[10] = {
-        {101, "Cliente A", "01/01/1990"},
-        {102, "Cliente B", "02/02/1991"},
-        {103, "Cliente C", "03/03/1992"},
-        {104, "Cliente D", "04/04/1993"},
-        {105, "Cliente E", "05/05/1994"},
-        {106, "Cliente F", "06/06/1995"},
-        {107, "Cliente G", "07/07/1996"},
-        {108, "Cliente H", "08/08/1997"},
-        {109, "Cliente I", "09/09/1998"},
-        {110, "Cliente J", "10/10/1999"},
+        {101, "Cliente A", false, -1},
+        {102, "Cliente B", false, -1},
+        {103, "Cliente C", false, -1},
+        {104, "Cliente D", false, -1},
+        {105, "Cliente E", false, -1},
+        {106, "Cliente F", false, -1},
+        {107, "Cliente G", false, -1},
+        {108, "Cliente H", false, -1},
+        {109, "Cliente I", false, -1},
+        {110, "Cliente J", false, -1},
     };
 
-    // Escrevendo os 20 clientes no arquivo
-    fwrite(clientes, sizeof(Client), 20, tabClientes);
-
-    // Fechar arquivo
+    fwrite(clientes, sizeof(Client), 10, tabClientes);
     fclose(tabClientes);
-
-    printf("20 clientes inseridos no arquivo com sucesso.\n");
 }
 
 #endif
